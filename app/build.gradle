@@ -84,14 +84,8 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:4.7.2"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
 
-    //Picasso for Image Loading
-    implementation ("com.squareup.picasso:picasso:$picassoVersion"){
-        exclude group: "com.android.support"
-    }
 
-    //Dagger2
-    api 'com.google.dagger:dagger-android:2.15'
-    api 'com.google.dagger:dagger-android-support:2.15'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 
 }

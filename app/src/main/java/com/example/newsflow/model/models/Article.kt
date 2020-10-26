@@ -1,6 +1,5 @@
 package com.example.newsflow.model.models
 
-
 data class Article(
     val source: Source,
     val author: String,
