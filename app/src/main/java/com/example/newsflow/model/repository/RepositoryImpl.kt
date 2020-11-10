@@ -17,7 +17,6 @@ class RepositoryImpl(private val netService: NetService): Repository {
 
     override suspend fun getWSJNews(): Flow<Result<NewsModel>> =
         flow {
-            withContext(Dispatchers.IO){}
             val data = try {
                 netService.getAllStreetJornal()
             } catch (e: IOException){
