@@ -2,6 +2,7 @@ package com.example.newsflow.model.network.api
 
 import com.example.newsflow.model.models.NewsModel
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import kotlinx.coroutines.flow.Flow
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -22,7 +23,7 @@ interface NetService {
     suspend fun getAllStreetJornal(
         @Query("country") country: String = "ru",
         @Query("category") category: String = "business"
-    ): Response<NewsModel>
+    ): NewsModel
 
 
     companion object {

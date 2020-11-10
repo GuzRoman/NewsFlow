@@ -4,6 +4,7 @@ import androidx.lifecycle.*
 import com.example.newsflow.model.models.NewsModel
 import com.example.newsflow.model.network.api.NetService
 import com.example.newsflow.model.repository.RepositoryImpl
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
@@ -16,16 +17,14 @@ class AllNewsViewModel : ViewModel() {
         getData()
     }
 
-    private fun getData() = viewModelScope.launch{
+    private fun getData() = viewModelScope.launch {
         fetchData()
     }
 
-    private suspend fun fetchData(){
+    private suspend fun fetchData() {
         val response = repository.getWSJNews()
-        newsData.value = response.value
+        response.collect { it.onSuccess { newsData.postValue(it) } }
     }
-
-
 
 
 }
